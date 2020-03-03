@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tourprogram;
+use App\TourProgram;
 class TourprogramController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class TourprogramController extends Controller
     public function index()
     {
     
-         $data['tourprograms'] = Tourprogram::orderByDesc('created_at')->paginate(4);
+         $data= TourProgram::orderByDesc('created_at')->paginate(4);
       return view('tour-program',$data);
         
     }
@@ -53,9 +53,10 @@ class TourprogramController extends Controller
         
           // $data['recent_tourprogram'] = orderByDesc('created_at')->paginate(4);
       
-          // $data['tourprograms'] = Tourprogram::find($id);
-       Tourprogram:: $data['tourprograms'] = Tourprogram::orderByDesc('created_at')->paginate(4);
-          return view('tourprogram-detail',$data);
+          $place= Tourprogram::find($id);
+          $data = Tourprogram::orderByDesc('created_at')->paginate(4);
+          // dd($data);
+          return view('tourprogram-detail',compact('place','data'));
     }
 
     /**

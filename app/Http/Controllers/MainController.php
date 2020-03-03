@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Tourprogram;
+use App\TourProgram;
 use App\Partner;
 use App\Blog;
 use App\Banner;
@@ -19,7 +19,7 @@ class MainController extends Controller
     {
 
       
-        $data['tourprogram'] =Tourprogram::orderByDesc('created_at')->limit(3)->get();
+        $data['tourprogram'] =TourProgram::orderByDesc('created_at')->limit(3)->get();
         $data['blog']=Blog::orderByDesc('created_at')->limit(3)->get();
         $data['partner']=Partner::orderByDesc('created_at')->limit(6)->get();
          $data['banner'] =Banner::orderBy('order', 'ASC')->get();

@@ -77,16 +77,13 @@
                 <textarea id="descsp" class="form-control {{ $errors->has('desc_sp') ? 'has-error' : '' }}" rows="15" name="desc_sp"></textarea>
                 <span class="text-danger">{{ $errors->first('desc_sp') }}</span>
               </div>
-            
-             
-              
-
-              <div class="col-md-12 mb-3">
+              <div class="row">
+                <div class="col-md-6 mb-2">
                 <label for="validationCustom01">Tour Image:</label>
                   @include('admin.img_upload')
               </div>
 
-              <div class="col-md-12 mb-3"> 
+              <div class="col-md-6 mb-2"> 
                 <div class="form-check">
                   <input type="hidden" value="{{auth()->user()->id}}" name="created_by"> 
                   <input  type="hidden" name="status" value="0">
@@ -94,6 +91,29 @@
                   <label class="form-check-label" name="status" for="defaultCheck1">Status</label>
                 </div>  
               </div>
+              </div>
+              
+              {{-- Testing --}}
+              <div class="row">
+                  <div class="col-md-6 mb-2">
+                <label for="validationCustom01">Other Serial Image:</label>
+                  @include('admin.img_upload')
+              </div>
+
+              <div class="col-md-6 mb-2"> 
+                <div class="form-check">
+                  <input type="hidden" value="{{auth()->user()->id}}" name="created_by"> 
+                  <input  type="hidden" name="status" value="0">
+                  <input  type="checkbox" class="cr-styled" name="status" value="1" >
+                  <label class="form-check-label" name="status" for="defaultCheck1">Status</label>
+                </div>  
+              </div>
+              </div>
+            
+
+              {{-- Testing --}}
+
+
             </div>
           </div>
           <div class="modal-footer">

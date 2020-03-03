@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Tourprogram;
+use App\TourProgram;
 use Image;
 class TourprogramController extends Controller
 {
@@ -16,7 +16,7 @@ class TourprogramController extends Controller
     public function index()
     {
         //
-        $data['tourprograms']=Tourprogram::orderByDesc('created_at')->paginate(4);
+        $data['tourprograms']=TourProgram::orderByDesc('created_at')->paginate(4);
         
         return view('admin.tourprogram.index',$data);
     }
@@ -45,7 +45,7 @@ class TourprogramController extends Controller
             'desc_en' =>'required'           
         ]);
         //
-        $tourprogram = new Tourprogram();
+        $tourprogram = new TourProgram();
         $tourprogram->title_en =$request->title_en;
         $tourprogram->title_sp=$request->title_sp;
         $tourprogram->subtitle_en=$request->subtitle_en;
@@ -89,7 +89,7 @@ class TourprogramController extends Controller
     public function edit($id)
     {
         //
-          $data['tourprogram'] =Tourprogram::find($id);
+          $data['tourprogram'] =TourProgram::find($id);
         return view('admin.tourprogram.edit',$data);
     }
 
@@ -104,7 +104,7 @@ class TourprogramController extends Controller
     {
         //
         
-        $tourprogram =Tourprogram::find($id);
+        $tourprogram =TourProgram::find($id);
     
 
 
@@ -139,7 +139,7 @@ class TourprogramController extends Controller
     public function destroy($id)
     {
         //
-        Tourprogram::destroy($id);
+        TourProgram::destroy($id);
          return back()->with('message','Successful delete tourprogram');
     }
 }

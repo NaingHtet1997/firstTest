@@ -1,43 +1,24 @@
 @extends('maintemplate')
 @section('content')
 <section class="page-section" id="services">
+  {{-- {!!dd($place)!!} --}}
     <div class="container">
       <div class="row text-center">
         <div class="col-md-8">
           <div class="card card-detail" >
-            <img src="{{asset('template/images/7.jpg')}}" class="card-img-top" alt="...">
+            <img src="{{asset('template/images/tourprogram/'.$place->thumbnail)}}" class="card-img-top" alt="...">
             <div class="card-body card-blog">
               <div class="row">
                 <div class="col-md-8 text-left blog-title">
-                  <h3 class="card-title">Blog Post title</h3>
+                  <h3 class="card-title">{{$place->title_en}}</h3>
                 </div>
                 <div class="col-md-4">
-                  <p>Post Date:<span>2020-2-1</span></p>
-                  <p>Author:<span>John</span></p>
+                  <p>Post Date:<span>{{$place->created_at->diffForHumans()}}</span></p>
+                  <p>Author:<span>{{$place->author_en}}</span></p>
                 </div>
               </div>
               <div class="row"><div class="col-md-12">
-              <p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+              <p class="card-text text-left">{{$place->desc_en}}</p>
              </div></div>
               <div class="card-body new-btn" style="float: right;Name">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Enquiry</button>
@@ -49,8 +30,23 @@
         </div>
         <div class="col-md-4">
           <div class="latestnews text-left">
-            <h3>Recent Post</h3>
+            <h3>Other Trip</h3>
+            @foreach($data as $item)
                 <div class="sidebar-sp">
+                  <div class="row">
+                    <div class="col-sm-3 post-sidebar-f">
+                      <img src="{{asset('template/images/tourprogram/'.$item->thumbnail)}}">
+                    </div>
+                    <div class="col-sm-9">
+                      <div class="card-title size ">{{$item->title_en}}</div>
+                      <div class="card-text sizeone">{{$item->subtitle_en}}
+                      </div>
+                        
+                    </div>
+                  </div>   
+                </div>
+                @endforeach
+                {{-- <div class="sidebar-sp">
                   <div class="row">
                     <div class="col-sm-3 post-sidebar-f">
                       <img src="{{asset('template/images/7.jpg')}}">
@@ -88,23 +84,10 @@
                         
                     </div>
                   </div>   
-                </div>
-                <div class="sidebar-sp">
-                  <div class="row">
-                    <div class="col-sm-3 post-sidebar-f">
-                      <img src="{{asset('template/images/7.jpg')}}">
-                    </div>
-                    <div class="col-sm-9">
-                      <div class="card-title size ">Lorem ipsum dolor sit amet</div>
-                      <div class="card-text sizeone">Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-                      </div>
-                        
-                    </div>
-                  </div>   
-                </div>
+                </div> --}}
           </div>
           <div class="updatenews text-left">
-            <h3>Update post</h3>
+            <h3>Similar Trip</h3>
             <div class="row">
               <div class="col-md-12">
                 <div class="card cardupdate" >
