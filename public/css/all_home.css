@@ -1,0 +1,92 @@
+#myModal{
+      position: relative;
+    width: 50%;
+    background: #fff;
+    padding: 50px 15px;
+}
+.card-body{
+  background-color: #fff;
+  padding: 20px !important;
+}
+label{
+  margin-top: 5px;
+}
+.saleItem{
+  margin:  25px 0px 0px 0px;
+}
+.all_total{
+  margin-top: 10px;
+}
+.content{
+  margin-left: 275px !important;
+}
+.form-horizontal{
+  padding: 0px 25px;
+}
+#invoiceform select.form-control{
+  height: 30px;
+}
+#invoiceform .form-group label{
+  text-align: left;
+}
+.content{
+  margin-left: 0px !important;
+}
+.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top{
+  background: #fff !important;
+}
+
+select{
+  min-width: 150px;
+}
+.btn-primary, a.btn-primary, a:visited.btn-primary a:link.btn-primary{
+  background-color:#07773b;
+  border-color: #07773b;
+}
+.btn-primary:hover, a.btn-primary:hover, a:visited.btn-primary a:link.btn-primary:hover{
+   background-color:#099e4e !important;
+  border-color: #099e4e !important;
+}
+
+.tab-student ul.student_form{
+      background-color: #fff;
+    padding-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+body.compact-menu .sidebar.sidebar-left .sidebar-content .main-menu .nav.metismenu>li.active>a{
+  background-color: #07773b !important;
+  border-left: solid 3px #07773b;
+}
+
+.btn-primary:active, a.btn-primary:active, a:visited.btn-primary a:link.btn-primary:active{
+ background-color: #07773b !important;
+  border-color: #07773b !important;
+}
+
+input[type="file"] { 
+  z-index: -1;
+  position: absolute;
+  opacity: 0;
+}
+
+input:focus + label {
+  outline: 2px solid;
+}
+
+#profile label{
+      background: #07773b;
+    border-color: #07773b;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

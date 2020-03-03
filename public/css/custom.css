@@ -1,0 +1,83 @@
+#login{
+  background:  url("/images/background.jpg") no-repeat center;
+  height: 610px;
+  background-size: cover;
+  position: relative;
+}
+.content-wrapper{
+  margin-top: 30px;
+}
+.content .page-header{
+  padding:10px 0px 0px 15px;
+}
+.content .page-content{
+  padding: 0px;
+}
+body .top-toolbar.navbar-desktop{
+  position: fixed;
+  width: 100%;
+  background-color: #003366 !important;
+}
+.card-body .left{
+  font-weight: 700;
+}
+
+.card-body.new-btn{
+  padding: 1.25rem 0px 0px 1.25rem
+}
+
+.labeltext{
+  font-weight: bold;
+  padding-right: 4px;
+}
+body #app .content-wrapper{
+  padding:35px 0px;
+}
+body #app .content-wrapper .content{
+  padding-left: 35px;
+}
+body.content-menu .content-wrapper .sidebar-left{
+  left: 0px;
+}
+ul.nav-sub.first.collapse.in{
+  background: #eee !important;
+}
+ul.nav-sub.second.collapse.in{
+  background: #000 !important;
+}
+
+a.btn.btn-info.btn-rounded.edit,a.btn.btn-info.btn-rounded.delete{
+  padding: 5px 15px;
+  height: 33px;
+}
+
+.nav-dropdown .name{
+  text-transform: uppercase;
+}
+
+.nav-dropdown #btn-role{
+  background: #32CD32;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    margin-left: 32px;
+}
+.main-menu .nav.metismenu>li>a{
+  color: #000 !important;
+  font-weight: normal;
+}
+#horizontal-wizard .content{
+  margin-left: -25px;
+}
+#horizontal-wizard{
+  padding: 20px;
+}
+.table .edit,.table .delete{
+  color: #ffffff;
+}
+a.btn.btn-info.delete_button,a.btn.btn-danger.delete_button,a.btn.btn-info{
+  color: #fff;
+  font-weight: 400;
+}
+
+
