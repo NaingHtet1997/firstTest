@@ -17,16 +17,23 @@
                   <p>Author:<span>{{$place->author_en}}</span></p>
                 </div>
               </div>
-              <div class="row"><div class="col-md-12">
-              <p class="card-text text-left">{{$place->desc_en}}</p>
-             </div></div>
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="card-text text-left">{{$place->desc_en}}</p>
+                </div>
+              </div>
               <div class="card-body new-btn" style="float: right;Name">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Enquiry</button>
               </div>
             </div>
           </div>
-
-         
+          <div class="row">
+            @foreach($place->photos as $photo)
+            <div class="col-md-4 col-6">
+              <img src="{{asset('template/images/tourprogram/'.$photo->image)}}" class="img-fluid">
+            </div>
+            @endforeach
+          </div>
         </div>
         <div class="col-md-4">
           <div class="latestnews text-left">
@@ -39,62 +46,24 @@
                     </div>
                     <div class="col-sm-9">
                       <div class="card-title size ">{{$item->title_en}}</div>
-                      <div class="card-text sizeone">{{$item->subtitle_en}}
+                        <div class="card-text sizeone">{{$item->subtitle_en}}
+                        </div>    
                       </div>
-                        
-                    </div>
-                  </div>   
-                </div>
+                    </div>   
+                  </div>
+               {{--  </div> --}}
                 @endforeach
-                {{-- <div class="sidebar-sp">
-                  <div class="row">
-                    <div class="col-sm-3 post-sidebar-f">
-                      <img src="{{asset('template/images/7.jpg')}}">
-                    </div>
-                    <div class="col-sm-9">
-                      <div class="card-title size ">Lorem ipsum dolor sit amet</div>
-                      <div class="card-text sizeone">Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-                      </div>
-                        
-                    </div>
-                  </div>   
-                </div>
-                <div class="sidebar-sp">
-                  <div class="row">
-                    <div class="col-sm-3 post-sidebar-f">
-                      <img src="{{asset('template/images/7.jpg')}}">
-                    </div>
-                    <div class="col-sm-9">
-                      <div class="card-title size ">Lorem ipsum dolor sit amet</div>
-                      <div class="card-text sizeone">Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-                      </div>
-                        
-                    </div>
-                  </div>   
-                </div>
-                <div class="sidebar-sp">
-                  <div class="row">
-                    <div class="col-sm-3 post-sidebar-f">
-                      <img src="{{asset('template/images/7.jpg')}}">
-                    </div>
-                    <div class="col-sm-9">
-                      <div class="card-title size ">Lorem ipsum dolor sit amet</div>
-                      <div class="card-text sizeone">Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-                      </div>
-                        
-                    </div>
-                  </div>   
-                </div> --}}
-          </div>
+
+          </div><!-- End for latestnews........ -->
           <div class="updatenews text-left">
             <h3>Similar Trip</h3>
             <div class="row">
               <div class="col-md-12">
                 <div class="card cardupdate" >
-                  <img src="{{asset('template/images/7.jpg')}}" class="card-img-top" alt="...">
+                  <img src="{{asset('template/images/tourprogram/'.$place->thumbnail)}}" class="card-img-top" alt="...">
                   <div class="card-body card-updatebody">
-                    <h5 class="card-title">Blog Post title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">{{$place->title_en}}</h5>
+                    <p class="card-text">{{str_limit($place->desc_en, 50)}}</p>
                     
                   </div>
                 </div>

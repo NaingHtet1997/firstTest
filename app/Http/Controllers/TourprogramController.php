@@ -53,9 +53,9 @@ class TourprogramController extends Controller
         
           // $data['recent_tourprogram'] = orderByDesc('created_at')->paginate(4);
       
-          $place= Tourprogram::find($id);
+          $place= Tourprogram::with('photos')->find($id);
           $data = Tourprogram::orderByDesc('created_at')->paginate(4);
-          // dd($data);
+          // dd($place);
           return view('tourprogram-detail',compact('place','data'));
     }
 
