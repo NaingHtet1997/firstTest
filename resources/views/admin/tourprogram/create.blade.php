@@ -79,41 +79,29 @@
               </div>
               <div class="row">
                 <div class="col-md-6 mb-2">
-                <label for="validationCustom01">Tour Image:</label>
-                  @include('admin.img_upload')
-              </div>
+                  <label for="validationCustom01">Tour Image:</label>
+                    @include('admin.img_upload')
+                </div>
 
-              <div class="col-md-6 mb-2"> 
-                <div class="form-check">
-                  <input type="hidden" value="{{auth()->user()->id}}" name="created_by"> 
-                  <input  type="hidden" name="status" value="0">
-                  <input  type="checkbox" class="cr-styled" name="status" value="1" >
-                  <label class="form-check-label" name="status" for="defaultCheck1">Status</label>
-                </div>  
+                <div class="col-md-6 mb-2"> 
+                  <div class="form-check">
+                    <input type="hidden" value="{{auth()->user()->id}}" name="created_by"> 
+                    <input  type="hidden" name="status" value="0">
+                    <input  type="checkbox" class="cr-styled" name="status" value="1" >
+                    <label class="form-check-label" name="status" for="defaultCheck1">Status</label>
+                  </div>  
+                </div>
               </div>
+              <br>
+              <div class="col-12">
+                {{-- <div class="col-md-6"> --}}
+                  <label for="validationCustom01">Related Images:</label>
+                {{-- </div> --}}
+                {{-- <div class="col-md-6"> --}}
+                  <input type="file" name="files[]" class="form-control" multiple>
+                {{-- </div> --}}
               </div>
               
-              {{-- Testing --}}
-              <div class="row">
-                  <div class="col-md-6 mb-2">
-                <label for="validationCustom01">Other Serial Image:</label>
-                  @include('admin.img_upload')
-              </div>
-
-              <div class="col-md-6 mb-2"> 
-                <div class="form-check">
-                  <input type="hidden" value="{{auth()->user()->id}}" name="created_by"> 
-                  <input  type="hidden" name="status" value="0">
-                  <input  type="checkbox" class="cr-styled" name="status" value="1" >
-                  <label class="form-check-label" name="status" for="defaultCheck1">Status</label>
-                </div>  
-              </div>
-              </div>
-            
-
-              {{-- Testing --}}
-
-
             </div>
           </div>
           <div class="modal-footer">
@@ -141,8 +129,17 @@
         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
-      
-     
+
+       var uppy = Uppy.Core()
+        .use(Uppy.Dashboard, {
+          inline: true,
+          target: '#drag-drop-area'
+        })
+        .use(Uppy.Tus, {endpoint: 'https://master.tus.io/files/'}) //you can put upload URL here, where you want to upload images
+ 
+      uppy.on('complete', (result) => {
+        console.log('Upload complete! We’ve uploaded these files:', result.successful)
+      })
 
 </script>
 

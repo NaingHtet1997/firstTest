@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="{{asset('css/theme-i.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('css/dataTables.bootstrap4.css')}}">
    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-fileinput.css')}}">
+   <link href="https://transloadit.edgly.net/releases/uppy/v1.6.0/uppy.min.css" rel="stylesheet">
    <style type="text/css">
       body{
           font-family: 'Gentium Book Basic', serif;
@@ -113,6 +114,9 @@
     <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/horizontal-wizard-init.js')}}"></script>
+    
+    <script src="https://transloadit.edgly.net/releases/uppy/v1.6.0/uppy.min.js"></script>
+
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>

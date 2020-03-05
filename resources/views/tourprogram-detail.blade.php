@@ -3,7 +3,7 @@
 <section class="page-section" id="services">
   {{-- {!!dd($place)!!} --}}
     <div class="container">
-      <div class="row text-center">
+      <div class="row">
         <div class="col-md-8">
           <div class="card card-detail" >
             <img src="{{asset('template/images/tourprogram/'.$place->thumbnail)}}" class="card-img-top" alt="...">
@@ -19,7 +19,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <p class="card-text text-left">{{$place->desc_en}}</p>
+                  <p class="card-text text-left">{!!$place->desc_en!!}</p>
                 </div>
               </div>
               <div class="card-body new-btn" style="float: right;Name">
@@ -30,7 +30,7 @@
           <div class="row">
             @foreach($place->photos as $photo)
             <div class="col-md-4 col-6">
-              <img src="{{asset('template/images/tourprogram/'.$photo->image)}}" class="img-fluid">
+              <img src="{{asset('template/images/relatedTour/'.$photo->image)}}" class="img-fluid">
             </div>
             @endforeach
           </div>
@@ -63,7 +63,7 @@
                   <img src="{{asset('template/images/tourprogram/'.$place->thumbnail)}}" class="card-img-top" alt="...">
                   <div class="card-body card-updatebody">
                     <h5 class="card-title">{{$place->title_en}}</h5>
-                    <p class="card-text">{{str_limit($place->desc_en, 50)}}</p>
+                    <p class="card-text">{!!str_limit($place->desc_en, 50)!!}</p>
                     
                   </div>
                 </div>
@@ -75,22 +75,16 @@
                   <img src="{{asset('template/images/7.jpg')}}" class="card-img-top" alt="...">
                   <div class="card-body card-updatebody">
                     <h5 class="card-title">Blog Post title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                  
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-      
+        </div>/      
       </div>
-
-
     </div>
-  </section>
-
+  </section>s
   @endsection
 
   <div class="modal fade" id="addModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -124,9 +118,7 @@
                 <div class="col-md-12 mb-3">
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Messages">
                   </textarea>
-                </div>
-
-             
+                </div>             
               </div>
             </div>
             <div class="modal-footer">

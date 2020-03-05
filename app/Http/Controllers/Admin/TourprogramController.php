@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\TourProgram;
+use App\TourProgramImage;
 use Image;
 class TourprogramController extends Controller
 {
@@ -40,11 +41,12 @@ class TourprogramController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->except('_token'));
          $this->validate($request,[
             'title_en' => 'required',
             'desc_en' =>'required'           
         ]);
-        //
+        
         $tourprogram = new TourProgram();
         $tourprogram->title_en =$request->title_en;
         $tourprogram->title_sp=$request->title_sp;
@@ -66,6 +68,21 @@ class TourprogramController extends Controller
            $tourprogram->thumbnail =$name;
         }
         $tourprogram->save();
+        if($images=$request->file('files'))
+        {
+            foreach ($images as $value) {
+                $name=uniqid().'_'.$value->getClientOriginalName();
+           
+                $dest =public_path('template/images/relatedTour');
+                $img = Image::make($value)->fit(184, 138);
+                $img->save($dest.'/'.$name);
+                $value->move($dest,$name);
+               $tourImage=new TourProgramImage();
+               $tourImage->tour_program_id=$tourprogram->id;
+               $tourImage->image=$name;
+               $tourImage->save();
+            }
+        }
         return redirect('admin/tourprogram')->with('message','Successful Tourprogram Added.');
     }
 
