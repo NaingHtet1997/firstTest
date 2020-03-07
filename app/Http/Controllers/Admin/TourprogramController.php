@@ -106,7 +106,7 @@ class TourprogramController extends Controller
     public function edit($id)
     {
         //
-          $data['tourprogram'] =TourProgram::find($id);
+          $data['tourprogram'] =TourProgram::with('photos')->find($id);
         return view('admin.tourprogram.edit',$data);
     }
 
@@ -120,7 +120,7 @@ class TourprogramController extends Controller
     public function update(Request $request, $id)
     {
         //
-        
+        // dd($request->except('_token'));
         $tourprogram =TourProgram::find($id);
     
 
@@ -144,6 +144,30 @@ class TourprogramController extends Controller
         $tourprogram->desc_sp =$request->desc_sp;
         $tourprogram->save();
          $tourprogram->update($request->all());
+
+         if($request->file('files')){
+         $tourImages=TourProgramImage::where('tour_program_id',$tourprogram->id)->get();
+         foreach ($tourImages as $img) {
+             # code...
+             $img->delete();
+         }
+     }
+
+         if($images=$request->file('files'))
+        {
+            foreach ($images as $value) {
+                $name=uniqid().'_'.$value->getClientOriginalName();
+           
+                $dest =public_path('template/images/relatedTour');
+                $img = Image::make($value)->fit(184, 138);
+                $img->save($dest.'/'.$name);
+                $value->move($dest,$name);
+               $tourImage=new TourProgramImage();
+               $tourImage->tour_program_id=$tourprogram->id;
+               $tourImage->image=$name;
+               $tourImage->save();
+            }
+        }
           return redirect('admin/tourprogram')->with('message','Successful Tourprogram updated.');
     }
 

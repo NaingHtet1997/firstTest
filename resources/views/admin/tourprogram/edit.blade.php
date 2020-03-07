@@ -99,6 +99,20 @@
                    
                 </div>
 
+                <div class="col-md-12 mb-3">
+                  <label>Related Images :</label>
+                  <button type="button" class="btn btn-success" id="fileopen" onclick="openfileDialog();">Change Images</button>
+                  <input type="file" name="files[]" id="fileinput" style="display: none;" multiple>
+                  <div class="row mt-1" id="origin_img">
+                    @foreach($tourprogram->photos as $photo)
+                    <div class="col-md-3">
+                      <img src="{{asset('template/images/relatedTour/'.$photo->image)}}" class="abir_image">
+                    </div>
+                    @endforeach
+                  </div>
+                <div id="image_preview" class="row"></div>
+                </div>
+
         </div>
          </div>
 
@@ -129,6 +143,23 @@
         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
+
+       function openfileDialog() {
+            $("#fileinput").click();
+        }
+
+        $("#fileinput").change(function(){
+           $('#image_preview').html("");
+           var total_file=document.getElementById("fileinput").files.length;
+           if(total_file>0)
+           {
+            $('#origin_img').html("");
+           }
+           for(var i=0;i<total_file;i++)
+           {
+            $('#image_preview').append("<div class='col-md-3'><img src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
+           }
+        });
 
 </script>
 
